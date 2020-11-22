@@ -1,5 +1,5 @@
 import React, { createContext, ReactNode, useContext } from "react";
-import { ClockStore } from "../stores/ClockStore";
+import { StopwatchStore } from "../stores/StopwatchStore";
 import { RootStore } from "../stores/RootStore";
 import { sizeSwitcherStoreFactory } from "../stores/SizeSwitcherStore";
 
@@ -15,9 +15,9 @@ export function useRootStore() {
   return context;
 }
 
-export function useClockStore() {
-  const { clockStore } = useRootStore();
-  return clockStore;
+export function useStopwatchStore() {
+  const { stopwatchStore } = useRootStore();
+  return stopwatchStore;
 }
 
 export function useSizeSwitcherStore() {
@@ -26,7 +26,7 @@ export function useSizeSwitcherStore() {
 }
 
 export function RootStoreProvider({ children }: { children: ReactNode }) {
-  const root = store ?? new RootStore(ClockStore, sizeSwitcherStoreFactory);
+  const root = store ?? new RootStore(StopwatchStore, sizeSwitcherStoreFactory);
 
   return <StoreContext.Provider value={root}>{children}</StoreContext.Provider>;
 }
