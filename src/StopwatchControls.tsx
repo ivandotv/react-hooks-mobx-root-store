@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
-import { useStopwatchStore, useRootStore } from "./providers/RootStoreProvider";
 import React, { useCallback } from "react";
+import { useRootStore } from "./providers/RootStoreProvider";
 
 export const StopwatchControls = observer(function StopwatchControls() {
   const { stopwatchStore: clockStore } = useRootStore();

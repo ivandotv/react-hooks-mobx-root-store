@@ -7,7 +7,7 @@ import {
 
 export const SizeControls = observer(function SizeControls() {
   const switchStore = useSizeSwitcherStore();
-  const clockStore = useStopwatchStore();
+  const stopwatchStore = useStopwatchStore();
 
   const switchToBig = useCallback(() => {
     return switchStore.makeStopwatchBig();
@@ -19,10 +19,13 @@ export const SizeControls = observer(function SizeControls() {
 
   return (
     <div className="buttons-wrap">
-      <button disabled={clockStore.size === "BIG"} onClick={switchToBig}>
+      <button disabled={stopwatchStore.size === "BIG"} onClick={switchToBig}>
         Big
       </button>
-      <button disabled={clockStore.size === "SMALL"} onClick={switchToSmall}>
+      <button
+        disabled={stopwatchStore.size === "SMALL"}
+        onClick={switchToSmall}
+      >
         Small
       </button>
     </div>
