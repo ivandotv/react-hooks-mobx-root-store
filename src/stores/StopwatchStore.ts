@@ -29,13 +29,12 @@ export class StopwatchStore {
       state: observable,
       lastUpdate: observable,
     });
-
-    this.lastUpdate = Date.now();
-    this.start();
   }
 
   start() {
-    this.offset = 0;
+    const timezoneOffset = new Date().getTimezoneOffset() * 60 * 1000;
+    this.offset = timezoneOffset;
+    this.lastUpdate = Date.now();
     this.startInterval();
   }
 
