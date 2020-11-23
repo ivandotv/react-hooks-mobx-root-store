@@ -11,7 +11,7 @@ import { RootStore } from "./RootStore";
 //todo - publish to netlify
 export class StopwatchStore {
   root: RootStore;
-  size: "BIG" | "SMALL" = "BIG";
+  size: "BIG" | "SMALL" = "SMALL";
   state: "STOPPED" | "STARTED" | "PAUSED" = "STOPPED";
   lastUpdate = 0;
   offset = 0;
@@ -29,18 +29,19 @@ export class StopwatchStore {
       state: observable,
       lastUpdate: observable,
     });
+
+    this.lastUpdate = Date.now();
+    this.start();
   }
 
   start() {
-    this.offset = Date.now();
+    this.offset = 0;
     this.startInterval();
   }
 
   resume() {
-    // this.offset = this.lastUpdate;
     this.offset = Date.now() - this.lastUpdate;
     this.startInterval();
-    // this.start();
   }
 
   pause() {
