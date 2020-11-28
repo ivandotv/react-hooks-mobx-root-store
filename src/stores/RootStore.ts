@@ -5,11 +5,8 @@ export class RootStore {
   stopwatchStore: StopwatchStore;
   sizeSwitcherStore: ReturnType<typeof sizeSwitcherStoreFactory>;
 
-  constructor(
-    StopwatchClass: typeof StopwatchStore,
-    colorSwitcher: typeof sizeSwitcherStoreFactory
-  ) {
-    this.stopwatchStore = new StopwatchClass(this);
-    this.sizeSwitcherStore = colorSwitcher(this);
+  constructor() {
+    this.stopwatchStore = new StopwatchStore(this);
+    this.sizeSwitcherStore = sizeSwitcherStoreFactory(this);
   }
 }

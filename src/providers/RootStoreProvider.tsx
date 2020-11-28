@@ -1,7 +1,5 @@
 import React, { createContext, ReactNode, useContext } from "react";
-import { StopwatchStore } from "../stores/StopwatchStore";
 import { RootStore } from "../stores/RootStore";
-import { sizeSwitcherStoreFactory } from "../stores/SizeSwitcherStore";
 
 let store: RootStore;
 const StoreContext = createContext<RootStore | undefined>(undefined);
@@ -26,7 +24,8 @@ export function useSizeSwitcherStore() {
 }
 
 export function RootStoreProvider({ children }: { children: ReactNode }) {
-  const root = store ?? new RootStore(StopwatchStore, sizeSwitcherStoreFactory);
+  // only create root store once (store is a singleton)
+  const root = store ?? new RootStore();
 
   return <StoreContext.Provider value={root}>{children}</StoreContext.Provider>;
 }
