@@ -2,7 +2,7 @@ import { observer } from "mobx-react-lite";
 import React, { useEffect } from "react";
 import { useStopwatchStore } from "./providers/RootStoreProvider";
 
-export const Stopwatch = observer(function Stopwatch(props) {
+export const Stopwatch = observer(function Stopwatch() {
   const store = useStopwatchStore();
 
   useEffect(() => {
