@@ -1,7 +1,7 @@
-# Demo project for Mobx root store pattern
+# Demo project: Mobx root store pattern with react hooks
 
-This is accompanying repository for a blog post:
+This is a demo project for a blog post:
 
-blog post link: [no url](www.example.com)
+[Mobx root store pattern with react hooks](https://dev.to/ivandotv/mobx-root-store-pattern-with-react-hooks-318d)
 
 ![screenshot](docs/screenshot.png)
